@@ -1,0 +1,21 @@
+[
+  {
+    id: "7juvy",
+    text: "Learn about React", 
+    isCompleted: false,
+    dueDate: "03/12/2020",
+  },
+  {
+    id: "6gs2sd",
+    text: "Meet fried for lunch", 
+    isCompleted: false,
+    dueDate: "03/12/2020",
+  },
+  {
+    id: "6nt1fs",
+    text: "Build really cool todo app", 
+    isCompleted: false,
+    dueDate: "03/12/2020"
+    
+  }
+]
