@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
-import { getData, createNewTodo } from '../../../api/todoApi/todo';
+import { getData, createNewTodo, updateTodoBD } from '../../../api/todoApi/todo';
 import TodoList, { STATE_TODO } from './TodoList';
 import getDateSeparated from '../../../utils/date';
-// import { db } from '../../../utils/firebase';
-// import TodoApi from '../../../api/todoApi/todo';
-// aqui não importa o nome porque é o default e no default podemos dar o nome que quisermos
+import Utils from '../../../utils/utils';
 
 const TodoContainer = () => {
-  // Aqui deverá ficar o estado comum dos todos
-  // Isto faz com que ao adicionar um todo, os restantes componetes
-  // que estão no pai não tenham que ser renderizados novamente
   const [singleTodo, setSingleTodo] = useState({});
   const [horaAtual, setHoraAtual] = useState(new Date());
 
   const [todos, setTodos] = useState([]);
 
-  useEffect(() => getData().then((res) => {
-    // console.log(res);
-    setTodos(res);
-  }),
-  []);
+  useEffect(
+    () => getData().then((res) => {
+      // console.log(res);
+      setTodos(res);
+    }),
+    [],
+  );
 
   useEffect(() => {
-    const relogio = setTimeout(() => { setHoraAtual(new Date()); }, 60 * 1000);
+    const relogio = setTimeout(() => {
+      setHoraAtual(new Date());
+    }, 60 * 1000);
     return () => clearTimeout(relogio);
   });
 
@@ -37,6 +36,7 @@ const TodoContainer = () => {
       if (todo.id === _id) {
         todo.isCompleted = !todo.isCompleted;
       }
+      updateTodoBD(todo);
       return todo;
     });
 
@@ -47,7 +47,7 @@ const TodoContainer = () => {
     const dueDate = new Date(_due);
     const newTodo = {
       text: _text,
-      id: Math.random().toString(36).substring(7),
+      id: Utils.uuidv4(),
       isCompleted: false,
       dueDate: dueDate.toISOString(),
     };
@@ -57,7 +57,6 @@ const TodoContainer = () => {
     newTodo.dueDateSeparated = getDateSeparated(dueDate);
 
     const newTodos = [...todos, newTodo];
-    // db.collection('tasks').doc("kr0yVggQSRzsIA8KDacZ").set(newTodo);
     setTodos(newTodos);
   };
 
@@ -73,6 +72,7 @@ const TodoContainer = () => {
         todo.dueDate = obj.dueDate;
         todo.dueDateSeparated = getDateSeparated(obj.dueDate);
       }
+      updateTodoBD(todo);
       return todo;
     });
     setTodos(newTodo);
@@ -82,14 +82,7 @@ const TodoContainer = () => {
     setSingleTodo({});
   };
 
-  // Coloquei para fora do TodoList porque penso não ser importante passar a data
-  // atual e deixar o componente calcular o estado
-  // acho que assim o componente fica mais burro como falei noutro componente
   const getTodoState = (todo) => {
-    /* eslint-disable no-debugger */
-    debugger;
-    /* eslint-enable no-debugger */
-
     /* eslint-disable max-len */
     const dia2ms = 24 * 60 * 60 * 1000;
     const cond2 = new Date(todo.dueDate) - horaAtual < 0 ? STATE_TODO.AFTER_DATE : STATE_TODO.ALMOST_END;
