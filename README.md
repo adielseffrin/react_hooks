@@ -1,5 +1,5 @@
 # Following this tutorial
-https://www.valentinog.com/blog/hooks/#react-hooks-tutorial-for-beginners-what-you-will-learn
+https://www.digitalocean.com/community/tutorials/how-to-build-a-react-to-do-app-with-react-hooks
 
 # Getting Started with Create React App
 

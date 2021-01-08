@@ -1,23 +1,30 @@
-function NossoDate({value, onChange}){
- 
-  //const [data] = (value ? new Date(value).toISOString().split('T') : new Date().toISOString().split('T'));
-  const [data] = (value ? new Date(value).toISOString().split('T') : [""]);
+import React from 'react';
+import PropTypes from 'prop-types';
 
-
-  const handleChange = e => {
+function NossoDate({ value, onChange }) {
+  const handleChange = (e) => {
     e.preventDefault();
     onChange(e.target.value);
-  
-  }
+  };
 
-  return(
+  return (
     <input
-       type="date" 
-       value={data}
-       onChange = {handleChange}
+      type="date"
+      value={value}
+      onChange={handleChange}
     />
 
-  )
+  );
 }
+
+NossoDate.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+NossoDate.defaultProps = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 export default NossoDate;

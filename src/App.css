@@ -3,31 +3,3 @@
   height: 100vh;
   padding: 30px;
 }
-
-.todo-list{
-  background: #e8e8e8;
-  border-radius: 4px;
-  max-width: 400px;
-  max-height: calc((39px  + 6px + 5px) * 6);
-  padding: 5px;
-  overflow-y: scroll;
-}
-
-.todo{
-  align-items: center;
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
-  display: flex;
-  font-size: 12px;
-  justify-content: space-between;
-  margin-bottom:  6px;
-  padding: 3px 10px;
-  height: 39px;
-}
-
-.todo-form{
-  align-items: center;
-  background: #fff;
-  max-width: 400px;
-}

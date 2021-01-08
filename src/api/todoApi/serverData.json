@@ -1,0 +1,51 @@
+[
+  {
+      "id": "7juvy",
+      "text": "Learn about React",
+      "completed": false,
+      "dueDate": "2021-11-11T00:00:01",
+      "user": "adielseffrin"
+  },
+  {
+      "id": "6gs2sd",
+      "text": "Meet fried for lunch",
+      "completed": false,
+      "dueDate": "2020-12-11T00:00:01",
+      "user": "adielseffrin"
+  },
+  {
+      "id": "6nt1fs",
+      "text": "Build really cool todo app",
+      "completed": false,
+      "dueDate": "2020-11-09T00:00:01",
+      "user": "adielseffrin"
+  },
+  {
+      "id": "7juvy1",
+      "text": "Learn about React",
+      "completed": false,
+      "dueDate": "2020-11-11T00:00:01",
+      "user": "outroadiel"
+  },
+  {
+      "id": "6gs2sd1",
+      "text": "Meet fried for lunch",
+      "completed": false,
+      "dueDate": "2020-11-10T00:00:01",
+      "user": "adielseffrin"
+  },
+  {
+      "id": "6nt1fs2",
+      "text": "Build really cool todo app",
+      "completed": false,
+      "dueDate": "2020-11-09T00:00:01",
+      "user": "adielseffrin"
+  },
+  {
+      "id": "7juvy11",
+      "text": "Learn about React",
+      "completed": false,
+      "dueDate": "2020-11-11T00:00:01",
+      "user": "outroadiel"
+  }
+]
